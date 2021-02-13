@@ -40,7 +40,7 @@ if not defined CMAKE_GENERATOR (
 )
 
 if not defined PLATFORM_TOOLSET (
-  set PLATFORM_TOOLSET=v141_xp
+  set PLATFORM_TOOLSET=v141
 )
 
 set clean=0
