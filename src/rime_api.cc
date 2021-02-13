@@ -612,6 +612,7 @@ RIME_API Bool RimeGetSchemaList(RimeSchemaList* output) {
     x.name = new char[schema.schema_name().length() + 1];
     strcpy(x.name, schema.schema_name().c_str());
     x.reserved = NULL;
+	x.hide_in_ui = True;
     ++output->size;
   }
   if (output->size == 0) {
@@ -709,8 +710,7 @@ RIME_API Bool RimeConfigGetDouble(RimeConfig *config, const char *key, double *v
   return Bool(c->GetDouble(key, value));
 }
 
-RIME_API Bool RimeConfigGetString(RimeConfig *config, const char *key,
-                                  char *value, size_t buffer_size) {
+RIME_API Bool RimeConfigGetString(RimeConfig *config, const char *key, char *value, size_t buffer_size) {
   if (!config || !key || !value) return False;
   Config *c = reinterpret_cast<Config*>(config->ptr);
   if (!c) return False;

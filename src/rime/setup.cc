@@ -79,7 +79,8 @@ RIME_API void SetupLogging(const char* app_name, int min_log_level, const char* 
 }
 
 RIME_API void SetupLogging(const char* app_name) {
-  SetupLogging(app_name, 0, NULL);
+  Deployer &deployer(Service::instance().deployer());
+  SetupLogging(app_name, 0, (fs::path(deployer.user_data_dir) / "log").string().c_str());
 }
 
 }  // namespace rime

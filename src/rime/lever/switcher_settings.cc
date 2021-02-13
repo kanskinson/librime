@@ -65,6 +65,9 @@ void SwitcherSettings::GetAvailableSchemasFromDirectory(const fs::path& dir) {
           continue;
         if (!config.GetString("schema/name", &info.name))
           continue;
+		if (!config.GetBool("schema/hide_in_ui", &info.hide_in_ui))
+			LOG(INFO) << "no hide_in_ui property found";
+
         // check for duplicates
         bool duplicated = false;
         for (const SchemaInfo& other : available_) {

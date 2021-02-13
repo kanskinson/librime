@@ -10,6 +10,7 @@
 #include <rime/deployer.h>
 #include <rime/signature.h>
 #include <rime/lever/custom_settings.h>
+#include <Windows.h>
 
 namespace fs = boost::filesystem;
 
@@ -33,20 +34,23 @@ CustomSettings::CustomSettings(Deployer* deployer,
 }
 
 bool CustomSettings::Load() {
-  fs::path config_path = fs::path(deployer_->staging_dir) / (config_id_ + ".yaml");
-  if (!config_.LoadFromFile(config_path.string())) {
-    config_path = fs::path(deployer_->prebuilt_data_dir) / (config_id_ + ".yaml");
-    if (!config_.LoadFromFile(config_path.string())) {
-      LOG(WARNING) << "cannot find '" << config_id_ << ".yaml'.";
-    }
-  }
-  fs::path custom_config_path =
-      fs::path(deployer_->user_data_dir) / custom_config_file(config_id_);
-  if (!custom_config_.LoadFromFile(custom_config_path.string())) {
-    return false;
-  }
-  modified_ = false;
-  return true;
+
+	//User_Build
+	fs::path config_path = fs::path(deployer_->staging_dir) / (config_id_ + ".yaml");
+	if (!config_.LoadFromFile(config_path.string())) {
+		//Prebuild
+		config_path = fs::path(deployer_->prebuilt_data_dir) / (config_id_ + ".yaml");
+		if (!config_.LoadFromFile(config_path.string())) {
+			LOG(WARNING) << "cannot find '" << config_id_ << ".yaml'.";
+			return false;
+		}
+	}
+	//Custom
+	fs::path custom_config_path = fs::path(deployer_->user_data_dir) / custom_config_file(config_id_);
+	custom_config_.LoadFromFile(custom_config_path.string());
+
+	modified_ = false;
+	return true;
 }
 
 bool CustomSettings::Save() {

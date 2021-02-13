@@ -138,6 +138,7 @@ rime_levers_get_available_schema_list(RimeSwitcherSettings* settings,
     item.schema_id = const_cast<char*>(info.schema_id.c_str());
     item.name = const_cast<char*>(info.name.c_str());
     item.reserved = const_cast<SchemaInfo*>(&info);
+	item.hide_in_ui = info.hide_in_ui;
     ++list->size;
   }
   return True;

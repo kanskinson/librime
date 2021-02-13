@@ -19,6 +19,7 @@ struct SchemaInfo {
   string author;
   string description;
   string file_path;
+  bool hide_in_ui = False;
 };
 
 class SwitcherSettings : public CustomSettings {

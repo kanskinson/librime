@@ -181,6 +181,7 @@ typedef struct rime_schema_list_item_t {
   char* schema_id;
   char* name;
   void* reserved;
+  bool hide_in_ui;
 } RimeSchemaListItem;
 
 typedef struct rime_schema_list_t {

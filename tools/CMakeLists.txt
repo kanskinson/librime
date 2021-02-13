@@ -67,9 +67,9 @@ file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/symbols.yaml
      DESTINATION ${EXECUTABLE_OUTPUT_PATH})
 file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/essay.txt
      DESTINATION ${EXECUTABLE_OUTPUT_PATH})
-file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/luna_pinyin.dict.yaml
+file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/pinyin.dict.yaml
      DESTINATION ${EXECUTABLE_OUTPUT_PATH})
-file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/luna_pinyin.schema.yaml
+file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/pinyin.schema.yaml
      DESTINATION ${EXECUTABLE_OUTPUT_PATH})
 file(COPY ${PROJECT_SOURCE_DIR}/data/minimal/cangjie5.dict.yaml
      DESTINATION ${EXECUTABLE_OUTPUT_PATH})
