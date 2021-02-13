@@ -19,6 +19,9 @@ set(
   JPVariants
   JPShinjitaiCharacters
   JPShinjitaiPhrases
+  98wb_spelling
+  86wb_spelling
+  u_pinyin
 )
 
 set(
@@ -28,12 +31,13 @@ set(
   TWVariantsRev
   HKVariantsRev
   JPVariantsRev
-  98wb_spelling
-  86wb_spelling
-  u_pinyin
 )
 
-set(DICTS ${DICTS_RAW} ${DICTS_GENERATED})
+set(
+  DICTS 
+  ${DICTS_RAW} 
+  ${DICTS_GENERATED}
+)
 
 foreach(DICT ${DICTS})
   set(DICT_TARGETS ${DICT_TARGETS} ${DICT}.ocd2)
@@ -100,34 +104,6 @@ set(
   DICT_JPVariantsRev_GENERATING_COMMAND
   ${DICT_REVERSE_BIN} ${DICT_JPVariantsRev_GENERATING_INPUT} JPVariantsRev.txt
 )
-
-set(
-  DICT_98WBRev_GENERATING_INPUT
-  ${DICT_DIR}/98wb_spelling.txt
-)
-set(
-  DICT_98WBRev_GENERATING_COMMAND
-  ${DICT_REVERSE_BIN} ${DICT_98WBRev_GENERATING_INPUT} 98wb_spelling.txt
-)
-
-set(
-  DICT_86WBRev_GENERATING_INPUT
-  ${DICT_DIR}/86wb_spelling.txt
-)
-set(
-  DICT_86WBRev_GENERATING_COMMAND
-  ${DICT_REVERSE_BIN} ${DICT_86WBRev_GENERATING_INPUT} 86wb_spelling.txt
-)
-
-set(
-  DICT_WBYinRev_GENERATING_INPUT
-  ${DICT_DIR}/u_pinyin.txt
-)
-set(
-  DICT_WBYinRev_GENERATING_COMMAND
-  ${DICT_REVERSE_BIN} ${DICT_WBYinRev_GENERATING_INPUT} u_pinyin.txt
-)
-
 
 foreach(DICT ${DICTS_GENERATED})
   add_custom_command(
