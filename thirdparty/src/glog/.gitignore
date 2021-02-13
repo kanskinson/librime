@@ -1,0 +1,13 @@
+autom4te.cache
+glog-*.tar.gz
+packages/rpm-unknown
+packages/debian-*
+CMakeCache.txt
+CMakeFiles/
+config.h
+*.cmake
+!cmake/DetermineGflagsNamespace.cmake
+*.sln
+*.vcxproj
+*.filters
+bazel-*
